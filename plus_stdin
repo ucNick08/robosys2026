@@ -9,6 +9,6 @@ def tonum(s):
 
 x=0
 for line in sys.stdin:
-        x += int(line)
+        x += tonum(line.rstrip()) #テスト変更
 
 print(x)
