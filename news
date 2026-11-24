@@ -5,9 +5,11 @@
 import sys
 import urllib.request
 import xml.etree.ElementTree as ET
+from email.utils import parsedate_to_datetime
 
 RSS_URL = "https://www.nhk.or.jp/rss/news/cat0.xml"  
 MAX_ITEMS = 5
+
 def fetch(url):
     with urllib.request.urlopen(url, timeout=10) as r:
         return r.read()
@@ -17,12 +19,19 @@ def parse(xml_bytes):
     return [(i.findtext("title"), i.findtext("link"),i.findtext("pubDate"))
             for i in root.iter("item")]
 
+def date_time(pubDate):
+    try:
+        d = parsedate_to_datetime(pubDate)
+    except (TypeError, ValueError):
+        return pub_date
+    return d.strftime("%Y年%m月%d日")+d.strftime("%H:%M")
+
 def main():
     url = sys.stdin.readline().strip() or RSS_URL
     for title, link ,pubDate in parse(fetch(url))[:MAX_ITEMS]:
         print(title)
         print(link)
-        print(pubDate)
+        print(date_time(pubDate))
         print()
 
 if __name__ == "__main__":
