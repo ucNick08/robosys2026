@@ -14,15 +14,15 @@ def fetch(url):
 
 def parse(xml_bytes):
     root = ET.fromstring(xml_bytes)
-    return [(i.findtext("title"), i.findtext("link"),i.findtext("pubData"))
+    return [(i.findtext("title"), i.findtext("link"),i.findtext("pubDate"))
             for i in root.iter("item")]
 
 def main():
     url = sys.stdin.readline().strip() or RSS_URL
-    for title, link ,pubData in parse(fetch(url))[:MAX_ITEMS]:
+    for title, link ,pubDate in parse(fetch(url))[:MAX_ITEMS]:
         print(title)
         print(link)
-        print(pubData)
+        print(pubDate)
         print()
 
 if __name__ == "__main__":
