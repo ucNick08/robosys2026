@@ -6,7 +6,7 @@ import sys
 import urllib.request
 import xml.etree.ElementTree as ET
 
-RSS_URL = "https://www3.nhk.or.jp/rss/news/cat0.xml"  
+RSS_URL = "https://www.nhk.or.jp/rss/news/cat0.xml"  
 MAX_ITEMS = 5
 def fetch(url):
     with urllib.request.urlopen(url, timeout=10) as r:
