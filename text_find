@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Chikato Onodera
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+
+
+def count_lines(text):
+    return len(text.splitlines())
+
+
+def count_chars(text):
+    n = 0
+    for ch in text:
+        if not ch.isspace():
+            n += 1
+    return n
