@@ -16,7 +16,7 @@ def count_chars(text):
             n += 1
     return n
 
-def count_text(num)
+def count_text(num):
     uni=ord(num)
     if 0x0030 <= num <= 0x0039
       return "数字"
@@ -26,3 +26,19 @@ def count_text(num)
       return "小英字"
     if 0x0041 <= num <= 0x005A or 0x0061 <= num <= 0x007A
       return "英字"
+    return "その他"
+
+def count_word(text):
+    counts={"数字":0,"大英字":0,"小英字":0,"英字":0,"その他":0}
+    for num in text:
+        if not num.isspace():
+            counts[count_text(num)] += 1
+    return counts
+
+def main():
+    if len(sys.argv) < 2:
+        print("使い方: textstat lines|chars|kinds [N]", file=sys.stderr)
+        sys.exit(1)
+    stat = argv[1]
+    text = sys.stdin.read()
+
