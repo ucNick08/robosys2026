@@ -1,0 +1,39 @@
+#!/usr/bin/env python3
+# SPDX-FileCopyrightText: 2026 Chikato Onodera
+# SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+from datetime import datetime
+
+
+def parse_line(line):
+    stamp, name = line.split(None, 1)
+    return datetime.fromisoformat(stamp), name.strip()
+
+
+def summarize(records):
+    totals = {}
+    for (t1, name), (t2, _) in zip(records, records[1:]):
+        totals[name] = totals.get(name, 0) + (t2 - t1).total_seconds()
+    return totals
+
+
+def main():
+    records = []
+    for n, line in enumerate(sys.stdin, 1):
+        if not line.strip():
+            continue
+        try:
+            records.append(parse_line(line))
+        except ValueError:
+            print(f"{n}行目の形式が正しくありません", file=sys.stderr)
+            sys.exit(1)
+    if not records:
+        print("入力が空です", file=sys.stderr)
+        sys.exit(1)
+    for name, sec in sorted(summarize(records).items(), key=lambda x: -x[1]):
+        print(f"{name}\t{int(sec)}")
+
+
+if __name__ == "__main__":
+    main()
