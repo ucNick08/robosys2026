@@ -51,7 +51,11 @@ $ printf 'Hello 123\n' | ./text_find kinds
 - Python: 3.10〜3.14（テスト済み）
 
 ## テスト
-（テストの実行方法を、1〜2行で書く）
+~~~
+$ chmod +x test.bash
+$ ./test.bash
+OK
+~~~
 
 ## 著作権とLICENSE
 - このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
