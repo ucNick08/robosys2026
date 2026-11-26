@@ -24,7 +24,7 @@ def count_text(num):
       return "大英字"
     if 0x0061 <= uni <= 0x007A:
       return "小英字"
-    if 0x0041 <= uni <= 0x005A or 0x0061 <= num <= 0x007A:
+    if 0x0041 <= uni <= 0x005A or 0x0061 <= uni <= 0x007A:
       return "英字"
     return "その他"
 
@@ -49,6 +49,8 @@ def main():
     elif stat == "kinds":
         for name, num in count_word(text).items():
             print(f"{name}\t{num}")
-
+    else:
+        print(f"不明な統計です: {stat}", file=sys.stderr)
+        sys.exit(1)
 if __name__ == "__main__":
     main()
