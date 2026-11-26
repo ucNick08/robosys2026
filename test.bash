@@ -10,32 +10,32 @@ ng () {
 res=0
 
 ### NORMAL INPUT ###
-out=$(printf 'こんにちは世界\nABC123\n' | ./textstat lines)#将来敵的に行う予定
-[ "$?" = 0 ]    || ng "$LINENO"
+out=$(printf 'Hello 123\nabc\n' | ./text_find lines)
+[ "$?" = 0 ]     || ng "$LINENO"
 [ "${out}" = 2 ] || ng "$LINENO"
 
-out=$(printf 'こんにちは世界\nABC123\n' | ./textstat chars)
+out=$(printf 'Hello 123\nabc\n' | ./text_find chars)
+[ "$?" = 0 ]      || ng "$LINENO"
+[ "${out}" = 11 ] || ng "$LINENO"
+
+out=$(printf 'Hello 123\n' | ./text_find kinds)
+[ "$?" = 0 ] || ng "$LINENO"
+[ "${out}" = "$(printf '数字\t3\n大英字\t1\n小英字\t4\nその他\t0')" ] || ng "$LINENO"
+
+out=$(printf 'あ!\n' | ./text_find kinds)
+[ "$?" = 0 ] || ng "$LINENO"
+[ "${out}" = "$(printf '数字\t0\n大英字\t0\n小英字\t0\nその他\t2')" ] || ng "$LINENO"
+
+out=$(printf '' | ./text_find lines)
 [ "$?" = 0 ]     || ng "$LINENO"
-[ "${out}" = 13 ] || ng "$LINENO"
-
-out=$(printf 'こんにちは世界\nABC123\n' | ./textstat kinds)
-[ "$?" = 0 ] || ng "$LINENO"
-[ "${out}" = "$(printf 'ひらがな\t5\nカタカナ\t0\n漢字\t2\n英字\t3\n数字\t3\nその他\t0')" ] || ng "$LINENO"
-
-out=$(printf 'aab\n' | ./textstat freq 1)
-[ "$?" = 0 ] || ng "$LINENO"
-[ "${out}" = "$(printf 'a\t2')" ] || ng "$LINENO"
+[ "${out}" = 0 ] || ng "$LINENO"
 
 ### STRANGE INPUT ###
-out=$(echo x | ./textstat 2> /dev/null)
+out=$(echo x | ./text_find 2> /dev/null)
 [ "$?" = 1 ]      || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
-out=$(echo x | ./textstat unknown 2> /dev/null)
-[ "$?" = 1 ]      || ng "$LINENO"
-[ "${out}" = "" ] || ng "$LINENO"
-
-out=$(echo x | ./textstat freq abc 2> /dev/null)
+out=$(echo x | ./text_find unknown 2> /dev/null)
 [ "$?" = 1 ]      || ng "$LINENO"
 [ "${out}" = "" ] || ng "$LINENO"
 
