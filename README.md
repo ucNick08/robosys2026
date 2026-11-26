@@ -3,33 +3,46 @@
 ## text_find
 ![test](https://github.com/ucNick08/robosys2026/actions/workflows/test.yml/badge.svg)
 
-（1〜2文で、何をするコマンドかを書く）
+text_findは、引き渡した文章もしくはテキストファイルの統計を調べることができるプログラムです。
+何の統計を調べたいかはユーザー側が指定できます。
+現在は英語ファイル・文章のみの対応をしていますが、将来的に日本語・中国語・韓国語・ラテン語・ドイツ語の対応をする予定です。
 
 ## インストール
-```
+~~~
 $ git clone https://github.com/ucNick08/robosys2026.git
 $ cd robosys2026
 $ chmod +x text_find
-```
+~~~
 サンプルを入れたい場合はtext_findと同じリポジトリ内に配置すること。
 ## 使い方
 標準入力に調べたいテキストを渡し、引数で調べる内容を指定します。
 
-（引数が3種類あることと、それぞれ何を出すかを、箇条書きで書く）
+引数は三種類。
+行数統計：lins
+~~~
+$ printf 'Hello 123\n' | ./text_find lines
+1
+~~~
+全体の文字数統計：chars
+~~~
+$ printf 'Hello 123\n' | ./text_find chars
+8
+~~~
+文字のおおまかな種類統計：kinds
 
-```
+~~~
 $ printf 'Hello 123\n' | ./text_find kinds
 数字	3
 大英字	1
 小英字	4
 その他	0
-```
+~~~
 
 （ファイルを渡す例を、実際に実行して、その出力を貼る）
 
-```
+~~~
 $ ./text_find lines < sample.text
-```
+~~~
 
 ## 動作環境
 - OS: Ubuntu 24.04 LTS
