@@ -18,13 +18,13 @@ def count_chars(text):
 
 def count_text(num):
     uni=ord(num)
-    if 0x0030 <= num <= 0x0039:
+    if 0x0030 <= uni <= 0x0039:
       return "数字"
-    if 0x0041 <= num <= 0x005A:
+    if 0x0041 <= uni <= 0x005A:
       return "大英字"
-    if 0x0061 <= num <= 0x007A:
+    if 0x0061 <= uni <= 0x007A:
       return "小英字"
-    if 0x0041 <= num <= 0x005A or 0x0061 <= num <= 0x007A:
+    if 0x0041 <= uni <= 0x005A or 0x0061 <= num <= 0x007A:
       return "英字"
     return "その他"
 
@@ -39,7 +39,7 @@ def main():
     if len(sys.argv) < 2:
         print("使い方: textstat lines|chars|kinds [N]", file=sys.stderr)
         sys.exit(1)
-    stat = argv[1]
+    stat = sys.argv[1]
     text = sys.stdin.read()
     
     if stat == "lines":
@@ -47,7 +47,7 @@ def main():
     elif stat == "chars":
         print(count_chars(text))
     elif stat == "kinds":
-        for name, num in count_kinds(text).items():
+        for name, num in count_word(text).items():
             print(f"{name}\t{num}")
 
 if __name__ == "__main__":
