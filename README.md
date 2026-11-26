@@ -38,7 +38,7 @@ $ printf 'Hello 123\n' | ./text_find kinds
 その他	0
 ~~~
 
-（ファイルを渡す例を、実際に実行して、その出力を貼る）
+ファイルに渡す場合
 
 ~~~
 ./text_find kinds < sample.text
@@ -62,5 +62,4 @@ $ printf 'Hello 123\n' | ./text_find kinds
     - https://github.com/tarolab-cit/lectures/tree/main/robosys2026
 - © 2026 Taro Suzuki
 
-## 自由記述
-このリポジトリはロボットシステム学で使用するリポジトリです
+
