@@ -18,7 +18,7 @@ $ git clone https://github.com/ucNick08/robosys2026.git
 $ cd robosys2026
 $ chmod +x text_find
 ```
-
+サンプルを入れたい場合はtext_findと同じリポジトリ内に配置すること。
 ## 使い方
 標準入力に調べたいテキストを渡し、引数で調べる内容を指定します。
 
