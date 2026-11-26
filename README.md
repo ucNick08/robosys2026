@@ -1,13 +1,6 @@
 # text_find
 
-## 著作権とLICENSE
-- このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
-- このパッケージのコードは、下記のスライド（CC BY-SA 4.0 by Taro Suzuki）のものを、
-  本人の許可を得て自身の著作としたものです。
-    - https://github.com/tarolab-cit/lectures/tree/main/robosys2026
-- © 2026 Taro Suzuki
-
-# text_find
+## text_find
 ![test](https://github.com/ucNick08/robosys2026/actions/workflows/test.yml/badge.svg)
 
 （1〜2文で、何をするコマンドかを書く）
@@ -45,9 +38,12 @@ $ ./text_find lines < sample.text
 ## テスト
 （テストの実行方法を、1〜2行で書く）
 
-## ライセンス
-- 3条項BSDライセンスの下で、再頒布および使用が許可されます。
-- © 2026 Chikato Onodera
+## 著作権とLICENSE
+- このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用が許可されます。
+- このパッケージのコードは、下記のスライド（CC BY-SA 4.0 by Taro Suzuki）のものを、
+  本人の許可を得て自身の著作としたものです。
+    - https://github.com/tarolab-cit/lectures/tree/main/robosys2026
+- © 2026 Taro Suzuki
 
 ## 自由記述
 このリポジトリはロボットシステム学で使用するリポジトリです
