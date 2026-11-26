@@ -41,7 +41,11 @@ $ printf 'Hello 123\n' | ./text_find kinds
 （ファイルを渡す例を、実際に実行して、その出力を貼る）
 
 ~~~
-$ ./text_find lines < sample.text
+./text_find kinds < sample.text
+数字    0
+大英字  97
+小英字  4547
+その他  155
 ~~~
 
 ## 動作環境
