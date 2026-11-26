@@ -41,4 +41,14 @@ def main():
         sys.exit(1)
     stat = argv[1]
     text = sys.stdin.read()
+    
+    if stat == "lines":
+        print(count_lines(text))
+    elif stat == "chars":
+        print(count_chars(text))
+    elif stat == "kinds":
+        for name, num in count_kinds(text).items():
+            print(f"{name}\t{num}")
 
+if __name__ == "__main__":
+    main()
