@@ -18,13 +18,13 @@ def count_chars(text):
 
 def count_text(num):
     uni=ord(num)
-    if 0x0030 <= num <= 0x0039
+    if 0x0030 <= num <= 0x0039:
       return "数字"
-    if 0x0041 <= num <= 0x005A
+    if 0x0041 <= num <= 0x005A:
       return "大英字"
-    if 0x0061 <= num <= 0x007A
+    if 0x0061 <= num <= 0x007A:
       return "小英字"
-    if 0x0041 <= num <= 0x005A or 0x0061 <= num <= 0x007A
+    if 0x0041 <= num <= 0x005A or 0x0061 <= num <= 0x007A:
       return "英字"
     return "その他"
 
